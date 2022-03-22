@@ -1,13 +1,13 @@
-from data_cleaning import seperator
+from re import U
+from data_cleaning import clean_data
 
    
 # bracket, off, division, multiplication, (addition, subtraction) same level
 
 class Calculate:
-    def __init__(self):
-        self.inputs = seperator()
-        
-    def calculation(self):
+    
+    def calculation(self, user_input):
+        self.inputs = clean_data(user_input)
         while '*' in self.inputs:
             for i, x in enumerate(self.inputs):
                 if x == '*':
